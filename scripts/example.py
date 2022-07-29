@@ -27,8 +27,7 @@ while True:
     # Print values.
     print(
        "Acceleration (m/s^2): ({0:0.3f}, {1:0.3f}, {2:0.3f})".format(
-            accel_x, accel_y, accel_z
-        )
+            accel_x, accel_y, accel_z)
     )
     print(
         "Magnetometer (uTesla): ({0:0.3f}, {1:0.3f}, {2:0.3f})".format(
