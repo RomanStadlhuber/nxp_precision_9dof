@@ -37,13 +37,14 @@ Make sure to set the correct SCL and SDA pin in the main function of imu_pipe_so
 
 ## Run as ROS node
 
-```
+```bash
 cd /catkin_ws/src
 git clone git@github.com:RomanStadlhuber/nxp_precision_9dof.git
 catkin_make
 source devel/setup.bash
 chmod +x $(rospack find nxp_precision_9dof)/scripts/*.py
-rosrun this_repo imu.py
+# launch 9dof (accel, gyro & magnetometer) IMU
+rosrun nxp_precision_9dof imu.launch
 ```
 
 By default the data are sent to the '/imu0'
