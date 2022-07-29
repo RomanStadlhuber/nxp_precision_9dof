@@ -1,3 +1,6 @@
 <launch>
 	<node pkg="nxp_precision_9dof" type="imu.py" name="IMU" output="screen"/>
+	<remap from="/imu/data_raw" to="/imu_raw"/>
+	<remap from="/imu/mag" to="/imu_magnetometer"/>
+	<node pkg="imu_filter_madgwick" type="imu_filter_node" name="IMU_Filter" output="screen"/>
 </launch>
