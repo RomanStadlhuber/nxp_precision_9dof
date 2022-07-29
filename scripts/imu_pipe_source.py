@@ -74,7 +74,7 @@ def main():
 
     gyro_sensor = adafruit_fxas21002c.FXAS21002C(i2c)
     print("gyro ok!")
-    
+
     while True:
         imu_data(gyro_sensor, acc_magn_sensor)
         time.sleep(1.0)

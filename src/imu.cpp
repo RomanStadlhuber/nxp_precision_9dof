@@ -269,7 +269,7 @@ int main(int argc, char **argv)
     	rosimu.linear_acceleration.x = float(0);
     	rosimu.linear_acceleration.y = float(0);
     	rosimu.linear_acceleration.z = float(0);
-        
+
 	pub.publish(rosimu);
 
     ros::spinOnce();
