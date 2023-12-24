@@ -17,7 +17,7 @@ to install the necessary libraries via pip, run the following command in this fo
 
 ```bash
 pip install -r requirements.txt
-``
+```
 
 on a Raspberry Pi this might take a few minutes and for `Adafruit-Blinka`,
 a lot of dependencies are installed as well, so best don't interrupt the process.
