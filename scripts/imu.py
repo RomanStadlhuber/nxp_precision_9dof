@@ -23,7 +23,7 @@ def imu_talker():
         queue_size=10,
     )
     rospy.init_node("adafruit_nxp_9dof_imu", anonymous=True)
-    rate = rospy.Rate(20)  # 10hz
+    rate = rospy.Rate(100)  # [Hz]
     # obtain I2C bus connection
     i2c = board.I2C()
     acc_magn_sensor = adafruit_fxos8700.FXOS8700(i2c)
