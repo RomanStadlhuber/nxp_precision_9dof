@@ -1,0 +1,6 @@
+# linter
+hacking
+# formatter
+black
+# type-checker
+mypy

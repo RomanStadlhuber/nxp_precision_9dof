@@ -2,9 +2,3 @@ numpy==1.17.4
 Adafruit-Blinka==8.0.2
 adafruit-circuitpython-fxas21002c==2.1.14
 adafruit-circuitpython-fxos8700==2.1.14
-# linter
-hacking
-# formatter
-black
-# type-checker
-mypy
