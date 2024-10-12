@@ -1,3 +1,3 @@
 <launch>
-	<node pkg="nxp_precision_9dof" type="imu.py" name="IMU" output="screen"/>
+	<node pkg="nxp_precision_9dof" type="imu.py" name="nxp_9dof_imu" output="screen"/>
 </launch>

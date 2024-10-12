@@ -12,26 +12,27 @@ import adafruit_fxas21002c
 def imu_talker():
     # accelerometer and gyroscope
     pub = rospy.Publisher(
-        "/imu_raw",
+        "imu_raw",
         Imu,
-        queue_size=10,
+        queue_size=100,
     )
     # magnetometer
     pub_magn = rospy.Publisher(
-        "/imu_magnetometer",
+        "imu_magnetometer",
         MagneticField,
-        queue_size=10,
+        queue_size=100,
     )
     rospy.init_node("adafruit_nxp_9dof_imu", anonymous=True)
-    rate = rospy.Rate(100)  # [Hz]
+    imu_rate = rospy.get_param("~rate", 500)
+    rate = rospy.Rate(imu_rate)  # [Hz]
     # obtain I2C bus connection
     i2c = board.I2C()
     acc_magn_sensor = adafruit_fxos8700.FXOS8700(i2c)
     # acc_magn_sensor = Adafruit_FXOS8700.FXOS8700()
-    rospy.loginfo("acc magn ready")
+    rospy.loginfo("NXP-9DOF: acc magn ready")
     gyro_sensor = adafruit_fxas21002c.FXAS21002C(i2c)
     # gyro_sensor = Adafruit_FXAS21002C.FXAS21002C()
-    rospy.loginfo("gyro ready")
+    rospy.loginfo("NXP-9DOF: gyro ready")
     while not rospy.is_shutdown():
         rosimu = Imu()
 
@@ -40,7 +41,7 @@ def imu_talker():
         mag_x, mag_y, mag_z = acc_magn_sensor.magnetometer
 
         rosimu.header.stamp = rospy.Time.now()
-        rosimu.header.frame_id = "imu_raw"
+        rosimu.header.frame_id = "nxp_9dof_imu"
 
         rosimu.angular_velocity.x = gyro_x
         rosimu.angular_velocity.y = gyro_y
@@ -52,7 +53,7 @@ def imu_talker():
 
         magn_msg = MagneticField()
         magn_msg.header.stamp = rospy.Time.now()
-        magn_msg.header.frame_id = "imu_raw"
+        magn_msg.header.frame_id = "nxp_9dof_imu"
         magn_msg.magnetic_field.x = mag_x
         magn_msg.magnetic_field.y = mag_y
         magn_msg.magnetic_field.z = mag_z
